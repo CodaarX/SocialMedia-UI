@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/baseLayoutportrait"
+    tools:context=".MainActivity">
+
+<!--    base layout contains two child layouts for appropriate design needs-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerBarConstraintLayout"
+        style="@style/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--        views in first layout-->
+        <TextView
+            android:id="@+id/goodMorningTextView"
+            style="@style/goodMorningTextView"
+            android:text="@string/good_morning"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/loveImageView"
+            style="@style/loveImaageView"
+            android:src="@drawable/hearts"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toStartOf="@+id/menuImageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/goodMorningTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <ImageView
+            android:id="@+id/menuImageView"
+            style="@style/menuImageView"
+            android:src="@drawable/menu"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.962"
+            app:layout_constraintStart_toEndOf="@+id/goodMorningTextView"
+            app:layout_constraintTop_toTopOf="@+id/loveImageView"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            style="@style/searchView"
+            android:background="@drawable/searchbuttonbackground"
+            android:queryHint="@string/query_hint"
+            app:layout_constraintBottom_toBottomOf="@id/headerBarConstraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goodMorningTextView" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch1"
+            style="@style/switch1"
+            android:text="@string/mode"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        style="@style/scrollView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/headerBarConstraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/headerBarConstraintLayout">
+
+        <!--        scrollview takes only one child-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollChildLayout"
+            style="@style/scrollChildLayout"
+            app:layout_constraintTop_toTopOf="@id/scrollView"
+            app:layout_constraintBottom_toTopOf="@id/scrollView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!--        all other elements nested inside the child of the scrollview-->
+            <ImageView
+                android:id="@+id/profilePicture"
+                style="@style/profilePicture"
+                android:src="@drawable/ellipse"
+                app:layout_constraintBottom_toTopOf="@+id/userName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/scrollChildLayout" />
+
+            <TextView
+                android:id="@+id/userName"
+                style="@style/userName"
+                android:text="@string/jane"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profilePicture" />
+
+            <TextView
+                android:id="@+id/userLocation"
+                style="@style/userLocation"
+                android:layout_width="match_parent"
+                android:text="@string/lagos_nigeria"
+                app:layout_constraintBottom_toTopOf="@id/followButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userName"
+                app:layout_constraintVertical_bias="0.61" />
+
+            <Button
+                android:id="@+id/followButton"
+                style="@style/followButton"
+                android:layout_width="match_parent"
+                android:background="@drawable/purple_buttons"
+                android:text="@string/follow_jane"
+                app:layout_constraintBottom_toTopOf="@id/messageButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userLocation" />
+
+            <Button
+                android:id="@+id/messageButton"
+                style="@style/messageButton"
+                android:background="@drawable/purple_buttons"
+                android:text="@string/message"
+                app:layout_constraintBottom_toTopOf="@id/gridLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/followButton" />
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                style="@style/gridLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/messageButton">
+
+                <LinearLayout
+                    android:id="@+id/gridlinear1"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear2"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle1"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear3"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle2"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear4"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle3"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear5"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle4"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear6"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle5"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle6" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear7"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle6"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear8"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle7"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle8" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gridlinear9"
+                    style="@style/gridlinear">
+
+                    <ImageView
+                        android:id="@+id/rectangle8"
+                        style="@style/rectangle"
+                        android:src="@drawable/rectangle9" />
+                </LinearLayout>
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/button3"
+                android:background="@drawable/searchbuttonbackground"
+                android:text="@string/see_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gridLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+

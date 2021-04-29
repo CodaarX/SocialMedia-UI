@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">userInterface</string>
+    <string name="jane">Jane</string>
+    <string name="lagos_nigeria">Lagos, Nigeria</string>
+    <string name="follow_jane">Follow Jane</string>
+    <string name="message">Message</string>
+    <string name="good_morning">Good Morning!</string>
+    <string name="see_more">see More</string>
+    <string name="query_hint">Search...</string>
+
+</resources>
